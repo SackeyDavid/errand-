@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+
 
 @Component({
   selector: 'app-tab1',
@@ -7,6 +9,12 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+  constructor(private splashScreen: SplashScreen) { 
+    this.splashScreen.show();
+
+    //this.splashScreen.hide();
+  }
+
+  
 
 }
