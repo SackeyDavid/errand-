@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { NewsService } from '../news.service';
 import { Router } from '@angular/router';
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss']
 })
-export class Tab1Page {
+export class Tab1Page implements OnInit {
 
   data: any;
   constructor(private splashScreen: SplashScreen, private newsService: NewsService, private router: Router) { 
@@ -18,14 +18,14 @@ export class Tab1Page {
     // this.splashScreen.hide();
   }
 
-    ngOnInit() {
+  ngOnInit() {
       this.newsService.getData('top-headlines?country=gh&category=business').subscribe(data => {
         console.log(data);
         this.data = data;
       });
     }
   
-    onGoToNewsSinglePages(article) {
+    onGoToNewsSinglePage(article) {
       this.newsService.currentArticle = article;
       this.router.navigate(['/news-single']);
     }
