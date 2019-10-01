@@ -19,7 +19,8 @@ export class Tab1Page implements OnInit {
   }
 
   ngOnInit() {
-      this.newsService.getData('top-headlines?country=gh&category=business').subscribe(data => {
+      this.newsService.getData('top-headlines?country=us')
+      .subscribe(data => {
         console.log(data);
         this.data = data;
       });

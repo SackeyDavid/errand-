@@ -1,5 +1,8 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab1"></ion-back-button>
+    </ion-buttons>
     <ion-title>{{article.title}}</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,9 +12,30 @@
     <ion-img [src]="article.urlToImage"></ion-img>
   
     <ion-card-content>
+        <ion-row>
+            <ion-col>
+              
+                <div>{{article.source.name}}</div>
+              
+            </ion-col>
+           
+          </ion-row>
       <ion-card-title>{{article.title}}</ion-card-title>
     
-      <p>{{article.description}}</p>
+      <p>{{article.content}}</p>
+      
+      <ion-row>
+            
+        <div>
+        <ion-icon name="person" item-start></ion-icon>
+        {{article.author}}
+        </div>
+        
+        <div>
+          <ion-icon name="time" item-end> </ion-icon> {{article.publishedAt}}
+        </div>
+            
+      </ion-row>
     </ion-card-content>
   </ion-card> 
 </ion-content>
