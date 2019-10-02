@@ -1,19 +1,72 @@
-<ion-header>
+<ion-header translucent>
   <ion-toolbar>
-    <ion-title>
-     About
-    </ion-title>
+    <ion-searchbar></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-card>
-    <ion-img src="/assets/vlcsnap-2019-04-20-09h46m30s119.png"></ion-img>
+<ion-content fullscreen>
+    <ion-list id="list"></ion-list>
+    <ion-infinite-scroll>
+      
+      <ion-infinite-scroll-content
+        loadingSpinner="bubbles"
+        loadingText="Loading more data…">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+    <ion-infinite-scroll threshold="100px" id="infinite-scroll">
+      <ion-infinite-scroll-content loading-spinner="bubbles" loading-text="Loading more data...">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <script src="/src/assets/js/data.js"></script>
+</ion-content>
+
+
+
+
   
-    <ion-card-content>
-      <ion-card-title>About</ion-card-title>
+
+
+
+
+
+
+
+
+
+
+
+<!-- <ion-header>
+  <ion-toolbar>
     
-      <p>This is sample application</p>
+  </ion-toolbar>
+</ion-header> -->
+
+
+ 
+
+<!-- <ion-footer-bar class="bar-dark">
+<h1 class="title">Updated {{currencies[0].ticker.timestamp |
+date:'mediumTime'}}</h1>
+</ion-footer-bar> -->
+
+
+<!-- <ion-content>
+  <ion-card> -->
+    <!-- <ion-img src="/assets/vlcsnap-2019-04-20-09h46m30s119.png"></ion-img> -->
+  
+    <!-- <ion-card-content>
+      <ion-card-title>Tabitha 0.0.1</ion-card-title>
+    
+      
     </ion-card-content>
   </ion-card>
-</ion-content>
+  
+</ion-content> -->
