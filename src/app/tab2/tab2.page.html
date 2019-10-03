@@ -1,31 +1,38 @@
 <ion-header translucent>
   <ion-toolbar>
-    <ion-searchbar></ion-searchbar>
+    <ion-searchbar placeholder="Type Fried Rice"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
-<ion-content fullscreen>
-    <ion-list id="list"></ion-list>
-    <ion-infinite-scroll>
-      
-      <ion-infinite-scroll-content
-        loadingSpinner="bubbles"
-        loadingText="Loading more data…">
-      </ion-infinite-scroll-content>
-    </ion-infinite-scroll>
-
-    <ion-infinite-scroll threshold="100px" id="infinite-scroll">
-      <ion-infinite-scroll-content loading-spinner="bubbles" loading-text="Loading more data...">
-      </ion-infinite-scroll-content>
-    </ion-infinite-scroll>
-
+<ion-content>
+  <!-- <ion-button (click)="toggleInfiniteScroll()" expand="block">
+    Toggle Infinite Scroll
+  </ion-button> -->
+ 
+  <ion-list>
+    <ion-item *ngFor="let item of dataList">
+      <ion-avatar slot="start">
+          <ion-img src="/assets/images/{{item.photo}}"></ion-img>
+        </ion-avatar>
+        <ion-label>
+          <h2>{{item.name}}</h2>
+          <p>{{item.created}}</p>
+        </ion-label>
+    </ion-item>
+  </ion-list>
+ 
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button>
-      <ion-icon name="add"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
-  <script src="/src/assets/js/data.js"></script>
+      <ion-fab-button>
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
 </ion-content>
 
 
