@@ -3,43 +3,92 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/tabs/tab1"></ion-back-button>
     </ion-buttons>
-    <ion-title>{{article.title}}</ion-title>
+    <ion-title> Select contact 
+    </ion-title>
+    <ion-buttons slot="secondary">
+      <ion-button>
+        <ion-icon slot="icon-only" name="search"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" name="more"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <!-- <ion-title>{{article.title}}</ion-title> -->
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-card>
-    <ion-img [src]="article.urlToImage"></ion-img>
+    <ion-list>
+        <ion-item>
+          <ion-avatar slot="start">
+              <ion-img src="/assets/images/person12.jpg"></ion-img>
+            </ion-avatar>
+            <ion-label>
+              <h2>Evelyn</h2>
+              <p> <ion-text color="success">ISH</ion-text></p>
+            </ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-avatar slot="start">
+                <ion-img src="/assets/images/person10.jpg"></ion-img>
+              </ion-avatar>
+              <ion-label>
+                <h2>Evelyn</h2>
+                <p> <ion-text color="medium">Night market</ion-text></p>
+              </ion-label>
+          </ion-item>
+          <ion-item>
+              <ion-icon name="share" slot="start">
+                  <!-- <ion-img src="/assets/images/person10.jpg"></ion-img> -->
+                </ion-icon>
+                <ion-label>
+                  <h2>Invite friends</h2>
+                  <!-- <p> <ion-text color="medium">Night market</ion-text></p> -->
+                </ion-label>
+            </ion-item>
+            <ion-item>
+                <ion-icon name="help" slot="start">
+                    <!-- <ion-img src="/assets/images/person10.jpg"></ion-img> -->
+                  </ion-icon>
+                  <ion-label>
+                    <h2>Contacts help</h2>
+                    <!-- <p> <ion-text color="medium">Night market</ion-text></p> -->
+                  </ion-label>
+              </ion-item>
+      </ion-list>
+
+  <!-- <ion-card>
+    <ion-img src="/src/assets/person1.jpg"></ion-img>
   
     <ion-card-content>
         <ion-row>
             <ion-col>
               
-                <div>{{article.source.name}}</div>
+                <div>DInnn</div>
               
             </ion-col>
            
           </ion-row>
-      <ion-card-title>{{article.title}}</ion-card-title>
+      <ion-card-title>sdfsd</ion-card-title>
     
-      <p>{{article.content}}</p>
+      <p>km;sdfksaflksvnas;k kanvk knak;lsv kvkdsmkmsv; lkkvkkvsjn mkasdfksdkn f </p>
       
       <ion-row>
             
         <div>
         <ion-icon name="person" item-start></ion-icon>
-        {{article.author}}
+        kofi
         </div>
         
         <div>
-          <ion-icon name="time" item-end> </ion-icon> {{article.publishedAt}}
+          <ion-icon name="time" item-end> </ion-icon> 24th Mat 3201
         </div>
 
         <div>
-            <ion-icon name="time" item-end> </ion-icon> {{article.url}}
+            <ion-icon name="time" item-end> </ion-icon> http:csdvsvsv..svfv
           </div>
             
       </ion-row>
     </ion-card-content>
-  </ion-card> 
+  </ion-card>  -->
 </ion-content>

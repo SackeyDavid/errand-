@@ -10,7 +10,7 @@
   </ion-button> -->
  
   <ion-list>
-    <ion-item *ngFor="let item of dataList">
+    <ion-item *ngFor="let item of dataList" (click)="onGoToChatsSinglePage()">
       <ion-avatar slot="start">
           <ion-img src="/assets/images/{{item.photo}}"></ion-img>
         </ion-avatar>
@@ -28,7 +28,7 @@
     </ion-infinite-scroll-content>
   </ion-infinite-scroll>
 
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="onGoToAddSinglePage()">
       <ion-fab-button>
         <ion-icon name="add"></ion-icon>
       </ion-fab-button>

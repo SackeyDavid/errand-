@@ -27,7 +27,7 @@
 <ion-content class="padding">
   <div [ngSwitch] = "discover">
     <ion-list *ngSwitchCase = " 'Nearby'">
-        <ion-item>
+        <ion-item (click)="onGoToShopSinglePage()">
             <ion-avatar slot="start">
                 <!-- <img src="/src/assets/images/hotel-6.jpg"> -->
                 <ion-img src="/assets/images/hotel-2.jpg"></ion-img>

@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-back-button defaultHref="/tabs/tab1"></ion-back-button>
+        </ion-buttons>
+    <ion-title>New Errand</ion-title>
+    <ion-buttons slot="secondary">
+        <ion-button>
+          <ion-icon slot="icon-only" name="ok"></ion-icon>
+        </ion-button>
+        <!-- <ion-button>
+          <ion-icon slot="icon-only" name="more"></ion-icon>
+        </ion-button> -->
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <p>kofiahendev@gmail.com</p>
+    </ion-card-content>
+  </ion-card>
+  <ion-text class="ion-padding">Message</ion-text>
+  <ion-input placeholder="Type Kleesoft, Sanitary pad, Waakye" class="ion-padding"></ion-input>
+  <ion-list>
+    <ion-item>
+        <ion-text slot="start">Use my Location</ion-text>
+        <ion-toggle [(ngModel)]="enabled"></ion-toggle>
+    </ion-item>
+  </ion-list>
+  
+</ion-content>

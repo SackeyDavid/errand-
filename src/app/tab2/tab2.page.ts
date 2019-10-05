@@ -1,5 +1,6 @@
 import { Component, ViewChild  } from '@angular/core';
 import { IonInfiniteScroll } from '@ionic/angular';
+import { Router } from '@angular/router';
 // import { NewsService } from '../news.service';
 
 
@@ -188,7 +189,7 @@ export class Tab2Page {
     "photo": "person15.png"
   }];
  
-  constructor() {
+  constructor(private router: Router) {
     this.dataList = [];
     console.log(this.dataList.length);
     
@@ -231,6 +232,16 @@ export class Tab2Page {
     }, 500);
   }
  
+  onGoToChatsSinglePage() {
+    //this.newsService.currentArticle = article;
+    this.router.navigate(['/news']);
+  }
+
+  onGoToAddSinglePage() {
+    //this.newsService.currentArticle = article;
+    this.router.navigate(['/errand']);
+  }
+
   toggleInfiniteScroll() {
     this.infiniteScroll.disabled = !this.infiniteScroll.disabled;
   }

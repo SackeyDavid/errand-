@@ -13,7 +13,8 @@ export class NewsSinglePage implements OnInit {
 
   ngOnInit() {
     this.article = this.newsService.currentArticle;
-    console.log(this.newsService.currentArticle);
+    // temporarily 
+    // console.log(this.newsService.currentArticle);
   }
 
 }

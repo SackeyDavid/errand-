@@ -31,4 +31,14 @@ export class Tab1Page implements OnInit {
       this.router.navigate(['/news-single']);
     }
 
+    onGoToChatsSinglePage() {
+      //this.newsService.currentArticle = article;
+      // '/news' refers to single chats
+      this.router.navigate(['/news']);
+    }
+
+    onGoToContactsSinglePage() {
+      //this.newsService.currentArticle = article;
+      this.router.navigate(['/news-single']);
+    }
 }
