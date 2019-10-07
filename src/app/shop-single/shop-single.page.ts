@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CartService } from './../cart.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-shop-single',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShopSinglePage implements OnInit {
 
-  constructor() { }
+  constructor(private cartService: CartService, private router: Router) { }
 
   ngOnInit() {
+    this.cart = this.cartService.getCart();
+    this.items = this.cartService.getProducts();
   }
 
   sliderConfig = {
@@ -17,4 +21,7 @@ export class ShopSinglePage implements OnInit {
     centeredSlides: true,
     slidesPerView: 1.6 
   }
+
+  cart = [];
+  items = []; 
 }
