@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ChangeDetectorRef  } from '@angular/core';
 import { Router } from '@angular/router';
+import { IonSegment } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab3',
@@ -8,8 +9,14 @@ import { Router } from '@angular/router';
 })
 export class Tab3Page {
 
-  constructor(private router: Router) {}
+  @ViewChild(IonSegment, {static: false}) ionSegment: IonSegment;
 
+  constructor(private router: Router, private cf: ChangeDetectorRef) {
+    // this.ionSegment.value = "nearby";
+  }
+
+  
+  
   onGoToShopSinglePage() {
     this.router.navigate(['/shop-single']);
   }

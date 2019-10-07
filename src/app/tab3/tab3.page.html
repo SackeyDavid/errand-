@@ -10,8 +10,19 @@
     </ion-buttons>
   </ion-toolbar>
   <ion-toolbar>
-    <ion-segment value="Nearby" [(ngModel)] = "discover">
-        <ion-segment-button value="Nearby">
+      <!-- <ion-segment (ionChange)="segmentChanged($event)" value="javascript">
+          <ion-segment-button value="python">
+            <ion-label>Python</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="javascript">
+            <ion-label>Javascript</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="Recommended">
+              <ion-label>listed</ion-label>
+            </ion-segment-button>
+        </ion-segment> -->
+    <ion-segment [(ngModel)] = "discover">
+        <ion-segment-button value="nearby" checked>
           <ion-label>close</ion-label>
         </ion-segment-button>
         <ion-segment-button value="Popular">
@@ -26,7 +37,7 @@
 
 <ion-content class="padding">
   <div [ngSwitch] = "discover">
-    <ion-list *ngSwitchCase = " 'Nearby'">
+    <ion-list *ngSwitchCase = " 'nearby'">
         <ion-item (click)="onGoToShopSinglePage()">
             <ion-avatar slot="start">
                 <!-- <img src="/src/assets/images/hotel-6.jpg"> -->
