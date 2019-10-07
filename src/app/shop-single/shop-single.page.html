@@ -49,37 +49,91 @@
 </ion-header>
 
 <ion-content fullscreen>
+    <b padding>Groceries</b>  
     <ion-grid>
       <ion-row>
         <ion-col no-padding>
           <div>
+            
             <ion-card no-padding>
-              <img src="/assets/images/iconic/Banana_Iconic.jpg" />
-              <ion-card-header>
-                <ion-card-title>GHS 6.00</ion-card-title>
-                <ion-card-subtitle>Banana</ion-card-subtitle>
-                <ion-card-subtitle>At	&#8373; 1 each</ion-card-subtitle>
-              </ion-card-header>
-              <!-- <ion-card-content>
-               
-              </ion-card-content> -->
-            </ion-card></div>
+                <!-- <span class="badge badge-dark">
+                    <ion-icon name="add"></ion-icon>
+                  </span> -->
+                <img src="/assets/images/iconic/Banana_Iconic.jpg" />
+                <!-- <ion-card-header>
+                  <ion-card-title></ion-card-title>
+                  <ion-card-subtitle></ion-card-subtitle>
+                  <ion-card-subtitle>At	&#8373; 1 each</ion-card-subtitle> 
+                </ion-card-header> -->
+                <ion-card-content class="grocery-card">
+                    <b>GHS 5.00</b>
+                    Banana
+                    <p>At	&#8373; 1 each</p>
+                </ion-card-content>
+              </ion-card>
+              
+            </div>
         </ion-col>
         <ion-col no-padding>
           <div>
             <ion-card no-padding>
               <img src="/assets/images/iconic/Yellow-Onion_Iconic.jpg" />
-              <ion-card-header>
-                <ion-card-title>GHS 3.00</ion-card-title>
-                <ion-card-subtitle>Garlic</ion-card-subtitle>
-                <ion-card-subtitle>At	&#8373; 1 each</ion-card-subtitle>
-              </ion-card-header>
-              <!-- <ion-card-content>
-                GHS 36.
-              </ion-card-content> -->
+              <!-- <ion-card-header>
+                <ion-card-title></ion-card-title>
+                <ion-card-subtitle></ion-card-subtitle>
+                <ion-card-subtitle></ion-card-subtitle>
+              </ion-card-header> -->
+              <ion-card-content>
+                <b>GHS 3.00</b>
+                Garlic
+                <p>At	&#8373; 1 each</p>
+              </ion-card-content>
             </ion-card></div>
         </ion-col>
       </ion-row>
       </ion-grid>
       
+      <b padding>Drinks</b>
+      <ion-slides [options]="sliderConfig">
+          <ion-slide>
+              <ion-card no-padding>
+                  <img src="/assets/images/iconic/Alpro-Fresh-Soy-Milk_Iconic.jpg" />
+                  <ion-card-header>
+                    <ion-card-title>GHS 5.00</ion-card-title>
+                    <ion-card-subtitle>Soy Milk</ion-card-subtitle>
+                    <ion-card-subtitle>Alpro-Fresh-Soy-Milk_Iconic</ion-card-subtitle>
+                  </ion-card-header>
+                  <!-- <ion-card-content>
+                   
+                  </ion-card-content> -->
+                </ion-card>
+          </ion-slide>
+          <ion-slide>
+              <ion-card no-padding>
+                  <img src="/assets/images/iconic/Arla-Standard-Milk_Iconic.jpg" />
+                  <ion-card-header>
+                    <ion-card-title>GHS 5.00</ion-card-title>
+                    <ion-card-subtitle>Soy Milk</ion-card-subtitle>
+                    <ion-card-subtitle>Alpro-Standard-Soy-Milk_Iconic</ion-card-subtitle>
+                  </ion-card-header>
+                  <!-- <ion-card-content>
+                   
+                  </ion-card-content> -->
+                </ion-card>
+          </ion-slide>
+          <ion-slide>
+              <ion-card no-padding>
+                 
+                  <img src="/assets/images/iconic/Oatly-Natural-Oatghurt_Iconic.jpg" />
+                  <ion-card-header>
+                    <ion-card-title>GHS 5.00</ion-card-title>
+                    <ion-card-subtitle>Oatghurt</ion-card-subtitle>
+                    <ion-card-subtitle>Oatly-Natural-Oatghurt_Iconic</ion-card-subtitle>
+                  </ion-card-header>
+                  <!-- <ion-card-content>
+                   
+                  </ion-card-content> -->
+                </ion-card>
+          </ion-slide>
+        </ion-slides>
 </ion-content>

@@ -12,4 +12,9 @@ export class ShopSinglePage implements OnInit {
   ngOnInit() {
   }
 
+  sliderConfig = {
+    spaceBetween:   10,
+    centeredSlides: true,
+    slidesPerView: 1.6 
+  }
 }
