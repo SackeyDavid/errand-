@@ -10,7 +10,8 @@ const routes: Routes = [
   { path: 'news-single', loadChildren: './news-single/news-single.module#NewsSinglePageModule' },
   { path: 'errand', loadChildren: './errand/errand.module#ErrandPageModule' },
   { path: 'shop-single', loadChildren: './shop-single/shop-single.module#ShopSinglePageModule' },
-  { path: 'cart', loadChildren: './cart/cart.module#CartPageModule' }
+  { path: 'cart', loadChildren: './cart/cart.module#CartPageModule' },
+  { path: 'about', loadChildren: './about/about.module#AboutPageModule' }
 ];
 @NgModule({
   imports: [
