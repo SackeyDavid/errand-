@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { NewsPage } from './news.page';
+//import { AutosizeModule } from 'ngx-autosize'; 
 
 const routes: Routes = [
   {
@@ -19,8 +20,10 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    //AutosizeModule
   ],
-  declarations: [NewsPage]
+  declarations: [NewsPage],
+  
 })
 export class NewsPageModule {}

@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./shop-single.page.scss'],
 })
 export class ShopSinglePage implements OnInit {
+  cart = [];
+  items = [];
 
   constructor(private cartService: CartService, private router: Router) { }
 
@@ -17,11 +19,18 @@ export class ShopSinglePage implements OnInit {
   }
 
   sliderConfig = {
-    spaceBetween:   10,
-    centeredSlides: true,
-    slidesPerView: 1.6 
+    spaceBetween:   1,
+    // centeredSlides: true,
+    slidesPerView: 2.4
   }
 
-  cart = [];
-  items = []; 
+   
+
+  addToCart(product) {
+    this.cartService.addProducts(product);
+  }
+
+  openCart() {
+    this.router.navigate(['cart']);
+    }
 }
