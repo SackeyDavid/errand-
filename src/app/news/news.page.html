@@ -3,7 +3,7 @@
       <ion-buttons slot="start">
           <ion-back-button defaultHref="/tabs/tab1"></ion-back-button>
         </ion-buttons>
-    <ion-title>Finn</ion-title>
+    <ion-title (click)="openAbout()">Finn</ion-title>
     <ion-buttons slot="secondary">
         <ion-button>
           <ion-icon slot="icon-only" name="call"></ion-icon>
@@ -37,12 +37,14 @@
 
 <ion-footer>
     <ion-toolbar color="light">
-      <ion-row>
+      <ion-row align-items-center no-padding>
         <ion-col size="10">
           <textarea [(ngModel)]= "newMsg" class="message-input"></textarea>
         </ion-col>
         <ion-col size="2">
-          <icon-button expand="block" fill="clear" color="primary"></icon-button>
+          <ion-button expand="block" fill="clear" color="primary" [disabled]="newMsg === ''" class="msg-btn" (click)="sendMessage()">
+            <ion-icon name="send" slot="icon-only"></ion-icon>
+          </ion-button>
         </ion-col>
       </ion-row>
     </ion-toolbar>

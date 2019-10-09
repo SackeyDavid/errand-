@@ -20,3 +20,18 @@
     float: right;
     font-size: small;
 }
+
+.msg-btn {
+    --padding-start: 0.5em;
+    --padding-end: 0.5em;
+}
+
+.message-input {
+    width: 100%;
+    border:1px solid var(--ion-color-medium);
+    border-radius: 10px;
+    background: #fff;
+    resize: none;
+    padding-left: 10px;
+    padding-right: 10px;
+} 
