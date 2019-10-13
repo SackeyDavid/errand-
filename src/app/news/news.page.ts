@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonContent } from '@ionic/angular';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-news',
@@ -43,10 +44,10 @@ export class NewsPage implements OnInit {
 
   currentUser = 'david';
 
-  newMsg = ''; 
+  newMsg = '';
   @ViewChild(IonContent, {static: false}) ionContent: IonContent;
-  
-  constructor() { }
+
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
@@ -63,7 +64,11 @@ export class NewsPage implements OnInit {
     setTimeout(()=> {
       this.ionContent.scrollToBottom(200);
     });
-    
+
+  }
+
+  openAbout(){
+    this.router.navigate(['about']);
   }
 
 }

@@ -11,7 +11,9 @@ const routes: Routes = [
   { path: 'errand', loadChildren: './errand/errand.module#ErrandPageModule' },
   { path: 'shop-single', loadChildren: './shop-single/shop-single.module#ShopSinglePageModule' },
   { path: 'cart', loadChildren: './cart/cart.module#CartPageModule' },
-  { path: 'about', loadChildren: './about/about.module#AboutPageModule' }
+  { path: 'about', loadChildren: './about/about.module#AboutPageModule' },
+  { path: 'register', loadChildren: './register/register.module#RegisterPageModule' },
+  { path: 'login', loadChildren: './login/login.module#LoginPageModule' }
 ];
 @NgModule({
   imports: [

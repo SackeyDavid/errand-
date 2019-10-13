@@ -1,9 +1,43 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>about</ion-title>
+    <ion-buttons slot="start">
+        <ion-back-button defaultHref="/"></ion-back-button>
+      </ion-buttons>
+  <ion-title>+23303414141</ion-title>
+  <ion-buttons slot="secondary">
+      <ion-button>
+        <ion-icon slot="icon-only" name="more"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content fullscreen>
+  <ion-grid style="border-top: 1px solid #dfdfdf; height: 30%; background: url('/assets/images/person1.jpg') no-repeat fixed center;border-bottom: 1px solid #dfdfdf;">
+      <ion-row  no-padding justify-content-center align-items-center
+      style="height: 100%; flex-direction: column;
+       ">
+          <ion-avatar>
+          <ion-img src="/assets/images/person1.jpg"></ion-img>
+        </ion-avatar>
+        
+        </ion-row>
+        <ion-row class="no-padding" style="margin-top:-6%; ">
+          <ion-col>+230945911311</ion-col>
+          <ion-col>online</ion-col>
+        </ion-row>
+      </ion-grid>
+      <br>
+  <ion-grid style="border-top: 1px solid #dfdfdf; height: 30%;border-bottom: 1px solid #dfdfdf;">
+          <ion-list no-padding>
+            <ion-item lines="none">Errands</ion-item>
+              <ion-item lines="inset">
+                Fried Rice, 2 packs
+                <span slot="end">2 hrs ago</span>
+              </ion-item>
+              <ion-item lines="none">
+               Kontomere <span slot="end">9 days ago</span>
+              </ion-item>
+            </ion-list>
+      </ion-grid>
 </ion-content>
