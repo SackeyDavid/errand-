@@ -1,0 +1,10 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>upload</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <img *ngIf="imageURL" src="https://ucarecdn.com/{{imageURL}}/"/>
+ <input type="file" (change)="fileChanged($event)" /> 
+</ion-content>

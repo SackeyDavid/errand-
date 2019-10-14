@@ -4,6 +4,9 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
+    // for redirecting default route to login
+    //redirectTo: 'login', pathMatch: 'full'
+    // redirect to tabbed default
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
   { path: 'news', loadChildren: './news/news.module#NewsPageModule' },
@@ -13,7 +16,8 @@ const routes: Routes = [
   { path: 'cart', loadChildren: './cart/cart.module#CartPageModule' },
   { path: 'about', loadChildren: './about/about.module#AboutPageModule' },
   { path: 'register', loadChildren: './register/register.module#RegisterPageModule' },
-  { path: 'login', loadChildren: './login/login.module#LoginPageModule' }
+  { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
+  { path: 'upload', loadChildren: './upload/upload.module#UploadPageModule' }
 ];
 @NgModule({
   imports: [
