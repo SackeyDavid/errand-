@@ -5,6 +5,18 @@
 </ion-header>
 
 <ion-content>
-  <img *ngIf="imageURL" src="https://ucarecdn.com/{{imageURL}}/"/>
- <input type="file" (change)="fileChanged($event)" /> 
+
+  <div class="center">
+    <input type="file" *ngIf="!imageURL" (change)="fileChanged($event)" class="filebtn" #fileButton /> 
+    <ion-button *ngIf="!imageURL" shape="round" color="primary" fill="outline" (click)="uploadFile()">Upload File</ion-button>
+    
+    <ion-card *ngIf="imageURL">
+        <img src="https://ucarecdn.com/{{imageURL}}/"/>
+        <ion-card-content>
+          <ion-textarea placeholder="Add a description" [(ngModel)]="desc"></ion-textarea>
+          <ion-button shape="round" color="primary" (click)="createPost()">Save</ion-button>
+        </ion-card-content>
+    </ion-card>
+  </div>
+
 </ion-content>

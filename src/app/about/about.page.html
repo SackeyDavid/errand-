@@ -13,7 +13,7 @@
 </ion-header>
 
 <ion-content fullscreen>
-  <ion-grid style="border-top: 1px solid #dfdfdf; height: 30%; background: url('/assets/images/person1.jpg') no-repeat fixed center;border-bottom: 1px solid #dfdfdf;">
+  <!-- <ion-grid style="border-top: 1px solid #dfdfdf; height: 30%; background: url('/assets/images/person1.jpg') no-repeat fixed center;border-bottom: 1px solid #dfdfdf;">
       <ion-row  no-padding justify-content-center align-items-center
       style="height: 100%; flex-direction: column;
        ">
@@ -39,5 +39,20 @@
                Kontomere <span slot="end">9 days ago</span>
               </ion-item>
             </ion-list>
-      </ion-grid>
+      </ion-grid> -->
+
+      <div class="center">
+        <div class="images">
+          <div class="image" *ngFor="let post of ((userPosts | async)?.posts)">
+            <ion-card>
+              <ion-img src="https://ucarecdn.com/{{post.image}}/-/crop/200x200/center/"></ion-img>
+            
+            <ion-card-content>
+              <p>{{post.desc}}</p>
+            </ion-card-content>
+          </ion-card>
+          </div>
+        </div>
+      </div>
+      
 </ion-content>
