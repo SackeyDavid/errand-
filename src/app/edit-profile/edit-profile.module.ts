@@ -5,13 +5,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { UploadPage } from './upload.page';
-import { ShareModule } from '../share.module';
+import { EditProfilePage } from './edit-profile.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: UploadPage
+    component: EditProfilePage
   }
 ];
 
@@ -20,9 +19,8 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes),
-    ShareModule
+    RouterModule.forChild(routes)
   ],
-  declarations: [UploadPage]
+  declarations: [EditProfilePage]
 })
-export class UploadPageModule {}
+export class EditProfilePageModule {}

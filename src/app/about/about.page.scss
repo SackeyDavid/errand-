@@ -1,9 +1,14 @@
-.images {
+ .images {
     display: flex;
     flex-wrap: wrap; 
 }
 
 .image {
-    width: 33%;
+    margin-left: 1px;
+    margin-left: 1px;
+}
 
+.main-image, .user-image {
+    width: 200px;
+    height: 200px;
 }
