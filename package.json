@@ -1,5 +1,5 @@
 {
-  "name": "Duoshao",
+  "name": "Mereba",
   "version": "0.0.1",
   "author": "Sackey David",
   "homepage": "https://ionicframework.com/",
@@ -26,8 +26,11 @@
     "@ionic-native/splash-screen": "^5.0.0",
     "@ionic-native/status-bar": "^5.0.0",
     "@ionic/angular": "^4.7.1",
+    "browser-sync": "^2.26.7",
+    "cheerio": "^0.19.0",
     "cordova-android": "~7.1.4",
     "cordova-browser": "5.0.4",
+    "cordova-plugin-browsersync": "^1.1.0",
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-googlemaps": "^2.6.2",
     "cordova-plugin-ionic-keyboard": "^2.2.0",
@@ -36,7 +39,13 @@
     "cordova-plugin-statusbar": "^2.4.2",
     "cordova-plugin-whitelist": "^1.3.3",
     "core-js": "^2.5.4",
+    "csp-parse": "0.0.2",
+    "elementtree": "^0.1.7",
     "firebase": "^7.2.2",
+    "glob": "^5.0.15",
+    "npm": "^2.15.12",
+    "plist": "^1.2.0",
+    "q": "^1.5.1",
     "rxjs": "~6.5.1",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"
@@ -82,7 +91,8 @@
       "cordova-plugin-googlemaps": {
         "PLAY_SERVICES_VERSION": "15.0.1",
         "ANDROID_SUPPORT_V4_VERSION": "27.+"
-      }
+      },
+      "cordova-plugin-browsersync": {}
     },
     "platforms": [
       "android",

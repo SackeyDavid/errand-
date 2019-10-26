@@ -1,7 +1,7 @@
-import { Component, OnInit, ViewChild, AfterContentInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterContentInit, ElementRef } from '@angular/core';
 import { Platform, LoadingController } from '@ionic/angular';
 import { environment } from '../../environments/environment';
-import { Environment, GoogleMap, GoogleMaps, GoogleMapOptions, Marker, GoogleMapsEvent, MyLocation } from '@ionic-native/google-maps'
+import { Environment, GoogleMap, GoogleMaps, GoogleMapOptions, Marker, GoogleMapsEvent, MyLocation, GoogleMapsAnimation } from '@ionic-native/google-maps'
 
 @Component({
   selector: 'app-home',
@@ -13,6 +13,7 @@ export class HomePage implements OnInit, AfterContentInit {
   @ViewChild('map', {static: false}) mapElement: any;
   private loading: any
   private map: GoogleMap
+  
 
   constructor(
     private platform: Platform, 
@@ -23,8 +24,15 @@ export class HomePage implements OnInit, AfterContentInit {
   }
 
   ngAfterContentInit() : void {
-    this.mapElement = this.mapElement.nativeElement;
+    setTimeout(() => {
+
+      this.mapElement = this.mapElement.nativeElement;
+
+      this.mapElement.style.width = this.platform.width() + 'px'
+      this.mapElement.style.height = this.platform.height() + 'px'
     this.loadMap()
+    }, 1000);
+    
   }
 
   async loadMap(){
@@ -39,7 +47,45 @@ export class HomePage implements OnInit, AfterContentInit {
       'API_KEY_FOR_BROWSER_DEBUG': environment.googleMapsKey
     })
 
-    this.map = GoogleMaps.create(this.mapElement)
+    const mapOptions: GoogleMapOptions = {
+      controls: {
+        zoom: false
+      }
+    }
+    this.map = GoogleMaps.create(this.mapElement, mapOptions)
+
+    try {
+      await this.map.one(GoogleMapsEvent.MAP_READY)
+      this.addOriginMarker()
+    } catch(error) {
+      console.log(error)
+    } 
+
+  }
+
+  async addOriginMarker() {
+    
+    try {
+      const myLocation: MyLocation = await this.map.getMyLocation()
+      console.log(myLocation)
+
+      await this.map.moveCamera({
+        target: myLocation.latLng,
+        zoom: 18
+      });
+
+      this.map.addMarkerSync({
+        title: 'Origin',
+        icon: 'blue',
+        animation: 'DROP',
+        position: myLocation.latLng
+      });
+
+    } catch (error) {
+      console.log(error)
+    } finally {
+      this.loading.dismiss()
+    }
   }
   
 }
