@@ -16,6 +16,7 @@ import { UserService } from './user.service'
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AuthService } from './auth.service';
 import { ShareModule } from './share.module';
+import { GoogleMaps } from '@ionic-native/google-maps'
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,14 +29,15 @@ import { ShareModule } from './share.module';
     AngularFireModule.initializeApp(firebaseConfig), 
     AngularFireAuthModule,
     AngularFirestoreModule,
-    ShareModule 
+    ShareModule
   ],
   providers: [
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     UserService,
-    AuthService
+    AuthService,
+    GoogleMaps 
   ],
   bootstrap: [AppComponent]
 })

@@ -6,9 +6,9 @@ const routes: Routes = [
   {
     path: '',
     // for redirecting default route to login
-    // redirectTo: '/tabs/tab1', pathMatch: 'full'
+    redirectTo: '/home', pathMatch: 'full'
     // redirect to tabbed default
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+    // loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
   { path: 'news', loadChildren: './news/news.module#NewsPageModule' },
   { path: 'news-single', loadChildren: './news-single/news-single.module#NewsSinglePageModule' },
