@@ -22,6 +22,7 @@ const routes: Routes = [
   { path: 'tabs', loadChildren: './tabs/tabs.module#TabsPageModule', canActivate: [AuthService] },
   { path: 'post/:id', loadChildren: './post/post.module#PostPageModule' },
   { path: 'edit-profile', loadChildren: './edit-profile/edit-profile.module#EditProfilePageModule' },
+  { path: 'home', loadChildren: './home/home.module#HomePageModule' },
 ];
 @NgModule({
   imports: [

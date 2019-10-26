@@ -10,7 +10,7 @@ import { Router } from '@angular/router'
   styleUrls: ['./about.page.scss'],
 })
 export class AboutPage implements OnInit {
-  userPosts
+
   posts
   uid: string
   mainuser: AngularFirestoreDocument
@@ -39,9 +39,9 @@ export class AboutPage implements OnInit {
           this.posts = event.posts
           this.username = event.username
           this.profilePic = event.profilePic
+          console.log(event)
       })
       console.log(this.uid)
-      console.log(this.userPosts)
     });
   }
 

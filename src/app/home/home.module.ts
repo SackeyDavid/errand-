@@ -5,13 +5,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { EditProfilePage } from './edit-profile.page';
-import { ShareModule } from '../share.module';
+import { HomePage } from './home.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: EditProfilePage
+    component: HomePage
   }
 ];
 
@@ -20,9 +19,8 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes),
-    ShareModule
+    RouterModule.forChild(routes)
   ],
-  declarations: [EditProfilePage]
+  declarations: [HomePage]
 })
-export class EditProfilePageModule {}
+export class HomePageModule {}
