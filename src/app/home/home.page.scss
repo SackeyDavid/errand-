@@ -1,0 +1,61 @@
+.margin {
+    margin-left: 2%;
+}
+
+ion-searchbar {
+    --background: white;
+}
+
+ion-list {
+    background-color: white;
+}
+
+ion-list, .requestShopper {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+} 
+
+.active {
+    border: 2px solid black;
+
+}
+
+.requestShopper {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 250px;
+    background-color: white;
+    padding-bottom: 15px;
+
+    img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: block;
+        margin: 0 auto -15px auto;
+    }
+
+    span {
+        display: block;
+    }
+
+    ion-grid {
+        span {
+            font-size: 12px;
+
+            &.category {
+                color: white;
+                background-color: #333;
+                margin-top: 0px;
+                padding: 3px 5px;
+                border-radius: 10px;
+                font-weight: bold;
+                display: inline-block;
+            }
+        }
+    }
+}
+
+
+

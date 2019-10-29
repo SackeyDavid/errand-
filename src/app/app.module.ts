@@ -17,6 +17,9 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AuthService } from './auth.service';
 import { ShareModule } from './share.module';
 import { GoogleMaps } from '@ionic-native/google-maps'
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx'
+import { AndroidFullScreen } from '@ionic-native/android-full-screen/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -37,7 +40,10 @@ import { GoogleMaps } from '@ionic-native/google-maps'
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     UserService,
     AuthService,
-    GoogleMaps 
+    GoogleMaps,
+    Geolocation,
+    NativeGeocoder, 
+    AndroidFullScreen
   ],
   bootstrap: [AppComponent]
 })

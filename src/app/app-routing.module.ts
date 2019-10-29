@@ -6,7 +6,7 @@ const routes: Routes = [
   {
     path: '',
     // for redirecting default route to login
-    redirectTo: '/home', pathMatch: 'full'
+    redirectTo: '/pickup', pathMatch: 'full'
     // redirect to tabbed default
     // loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
@@ -23,6 +23,7 @@ const routes: Routes = [
   { path: 'post/:id', loadChildren: './post/post.module#PostPageModule' },
   { path: 'edit-profile', loadChildren: './edit-profile/edit-profile.module#EditProfilePageModule' },
   { path: 'home', loadChildren: './home/home.module#HomePageModule' },
+  { path: 'pickup', loadChildren: './pickup/pickup.module#PickupPageModule' },
 ];
 @NgModule({
   imports: [

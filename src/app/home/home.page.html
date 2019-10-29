@@ -1,5 +1,215 @@
-<ion-content>
+<ion-content style="min-height: 70%;padding-bottom: 0;" *ngIf="!typing">
   <div #map>
+      <!-- <ion-fab vertical="top" horizontal="start" slot="fixed">
+          <ion-fab-button color="light" style="margin: 8px;width: 40px;height: 40px;line-height: 40px;">
+          <ion-icon name="menu"></ion-icon>
+          </ion-fab-button>
+        </ion-fab>
+        <ion-fab vertical="top" horizontal="end" slot="fixed" (click)="hideMap()">
+            <ion-fab-button color="light" style="margin: 8px;width: 40px;height: 40px;line-height: 40px;">
+            <ion-icon name="list-box"></ion-icon>
+            </ion-fab-button>
+        </ion-fab> -->
+        <ion-button class="ion-margin-top" (click)="back()" color="dark" fill="clear" size="small" [hidden]="!destination">
+          <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+        </ion-button>
+        <ion-searchbar style="max-width: 100%;" [(ngModel)]="search" (ionChange)="searchChanged()" [hidden]="destination"  placeholder="where do you want to shop from?"></ion-searchbar>
+        <ion-list [hidden] = "!search.length" style="background-color: white;">
+
+          <ion-item (click)="calcRoute(results)" *ngFor="let results of searchResults" class="no-padding" lines="none" > 
+              <!-- <ion-icon name="basket" class="mini" style="background-color: rgb(224, 17, 121);border-radius: 50%;margin: 12px;padding: 12px;color: white;"></ion-icon> -->
+            <ion-label>
+              <h5 class="margin"> {{reformat1(results.description)}}</h5>
+              <p class="margin"> {{reformat2(results.description)}}</p>
+            </ion-label>
+          </ion-item>
+        
+        </ion-list>
+    
+    
+
 
   </div>
+
+  <div class="requestShopper ion-text-center" [hidden]="!destination" >
+      <ion-segment scrollable [(ngModel)] = "discover" color="dark">
+          <ion-segment-button value="economy">
+              <ion-label>
+                 <h4 class="ion-no-margin">Economy</h4>
+                <!-- <span>Public transport</span> -->
+              </ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="premium" checked>
+              <ion-label> 
+                <h4 class="ion-no-margin">Premium</h4>
+                <!-- <span>Taxi</span> -->
+              </ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="professional">
+              <ion-label>
+                  <h4 class="ion-no-margin">Professional</h4>
+                  <!-- <span>Private vehicle</span> -->
+              </ion-label>
+          </ion-segment-button>
+          
+        </ion-segment>
+
+        <div [ngSwitch] = "discover">
+            <div *ngSwitchCase = " 'economy'">
+                <ion-grid  class="ion-margin-vertical">
+                    <ion-row>
+                      <ion-col size="4" [class.active]="activePlan==plans.shared" (click)="setSelected('shared')">
+                        <img src="https://via.placeholder.com/65/cccccc">
+                        <span class="category">Shared</span>
+                        <span>GHS 15</span>
+                      </ion-col>
+                      <ion-col size="4" [class.active]="activePlan==plans.dedicated" (click)="setSelected('dedicated')">
+                      <img src="https://via.placeholder.com/65/cccccc">
+                      <span class="category">Dedicated</span>
+                      <span>GHS 17</span>
+                    </ion-col>
+                    
+                    </ion-row>
+                  </ion-grid>
+              <hr>
+                  <ion-button color="dark" expand="block">
+                    Request shopper
+                  </ion-button>
+                </div>
+
+                <div *ngSwitchCase = " 'premium'">
+                    <ion-grid class="ion-margin-vertical">
+                        <ion-row>
+                            <ion-col size="4" [class.active]="activePlan==plans.shared"    (click)="setSelected('shared')">
+                                <img src="https://via.placeholder.com/65/cccccc">
+                                <span class="category">Shared</span>
+                                <span>GHS 25</span>
+                              </ion-col>
+                              <ion-col size="4" [class.active]="activePlan==plans.dedicated"   (click)="setSelected('dedicated')">
+                              <img src="https://via.placeholder.com/65/cccccc">
+                              <span class="category">Dedicated</span>
+                              <span>GHS 27</span>
+                            </ion-col>
+                        </ion-row>
+                      </ion-grid>
+                  
+                      <ion-button color="dark" expand="block">
+                        Request shopper
+                      </ion-button>
+                    </div>
+
+                    <div *ngSwitchCase = " 'professional'">
+                        <ion-grid  class="ion-margin-vertical">
+                            <ion-row>
+                                <ion-col size="4" [class.active]="activePlan==plans.shared"  (click)="setSelected('shared')">
+                                    <img src="https://via.placeholder.com/65/cccccc">
+                                    <span class="category">Shared</span>
+                                    <span>GHS 35</span>
+                                  </ion-col>
+                                  <ion-col size="4" [class.active]="activePlan==plans.dedicated">
+                                  <img src="https://via.placeholder.com/65/cccccc">
+                                  <span class="category"  (click)="setSelected('dedicated')">Dedicated</span>
+                                  <span>GHS 37</span>
+                                </ion-col>
+                            </ion-row>
+                          </ion-grid>
+                      <span> Add Payment <ion-icon slot="secondary" name="arrow-dropdown"></ion-icon></span>
+                          <ion-button color="light" fill="clear">
+                            Add Payment <ion-icon slot="end" name="arrow-dropdown"></ion-icon>
+                          </ion-button>
+                          <ion-button color="dark" expand="block">
+                              Request shopper
+                            </ion-button>
+                        </div>
+          </div>
+    
+
+    
+  </div>
 </ion-content>
+<ion-footer style="max-height: 30%;margin-bottom: 0;" [hidden] = "destination">
+    <ion-buttons slot="start" [hidden] = "!typing">
+        <ion-button (click)="showMap()">
+            <ion-icon name="arrow-back" style="color: black;"></ion-icon> 
+        </ion-button>
+      </ion-buttons>
+  
+        
+  <p style="margin-left: 2%;padding-bottom: 0;" [hidden] = "typing">Good evenning, David </p>
+  <h5 style="margin-left: 2%;padding-top: 0%;" class="no-padding" [hidden] = "typing">Where do you want to shop from?</h5>
+  
+  
+  <ion-list>
+    <ion-list-header class="no-padding">
+        Nearby
+    </ion-list-header>
+
+    <ion-item lines="none" class="no-padding">
+        <ion-icon name="cart" style="background-color: rgb(60, 58, 211);border-radius: 50%;margin: 12px;padding: 12px;color: white;"></ion-icon>
+        <ion-label>
+          <h2 class="margin"> Melcome Kasoa</h2>
+          <p class="margin"> Kae Me Bre</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+
+    
+      
+</ion-footer>
+
+
+
+
+  <!-- <ion-item class="no-padding" lines="none">
+        <ion-icon name="basket" class="mini" style="background-color: rgb(224, 17, 121);border-radius: 50%;margin: 12px;color: white;"></ion-icon>
+      <ion-label>
+        <h5 class="margin"> New Market</h5>
+        <p class="margin"> Akweley, Off Bawjiase Road</p>
+      </ion-label>
+    </ion-item> -->
+<!-- <ion-fab vertical="top" horizontal="start" slot="fixed">
+      <ion-fab-button>
+        
+      </ion-fab-button>
+    </ion-fab>
+    <ion-fab vertical="top" horizontal="end" slot="fixed">
+      <ion-fab-button>
+        <ion-icon name="search"></ion-icon>
+      </ion-fab-button>
+    </ion-fab> 
+  <ion-buttons slot="start">
+     <ion-back-button defaultHref="/tabs/tab1"></ion-back-button>  
+    <ion-avatar>
+        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+      </ion-avatar>
+    </ion-buttons>
+    <ion-title> Select contact 
+    </ion-title>
+    <ion-buttons slot="secondary">
+      <ion-button>
+        <ion-icon slot="icon-only" name="search"></ion-icon>
+      </ion-button>
+    </ion-buttons>-->
+
+     <!-- <ion-fab vertical="top" horizontal="end" slot="fixed">
+          <ion-fab-button color="light" style="margin: 8px;width: 40px;height: 40px;line-height: 40px;">
+          <ion-icon name="apps"></ion-icon>
+          </ion-fab-button>
+         </ion-fab>  -->
+
+         
+            <!-- <ion-buttons slot="start">
+              <ion-button>
+                
+              </ion-button>
+            </ion-buttons>
+    
+            <ion-searchbar [(ngModel)]="search" (ionChanged)="searchChanged()" placeholder="search markets"></ion-searchbar>
+            <ion-title>Mereba</ion-title>
+    
+            <ion-buttons slot="end">
+              <ion-button>
+                <ion-icon slot="icon-only" name="search"></ion-icon>
+              </ion-button>
+            </ion-buttons> -->
+         

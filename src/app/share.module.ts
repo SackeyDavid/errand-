@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 import { LoadingComponent } from './loading/loading.component';
+import { MapComponent } from './map/map.component'
 
 
 @NgModule({
@@ -12,7 +13,7 @@ import { LoadingComponent } from './loading/loading.component';
     FormsModule,
     IonicModule,
   ],
-  declarations: [LoadingComponent],
-  exports: [LoadingComponent]
+  declarations: [LoadingComponent, MapComponent],
+  exports: [LoadingComponent, MapComponent]
 })
 export class ShareModule {}

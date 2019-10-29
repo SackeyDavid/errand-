@@ -1,0 +1,48 @@
+.platform-android {
+    .ion-page {
+      ion-header {
+        padding-top: 20px;
+        background-color: --ion-color-primary;
+      }
+    }
+  }
+  
+  // Super bar placeholder
+  // Work in tool bar with transparent status bar
+  
+  %super-bar {
+    .scroll-content {
+      margin-top: 0 !important;
+    }
+  
+    ion-header, .toolbar-background {
+      background-color: initial !important;
+      transition: background-color 1s ease;
+  
+      &:after {
+        height: 0  !important;
+      }
+    }
+  
+    .opaque {
+      background-color: --ion-color-primary !important;
+  
+      &:after {
+        height: 5px !important;
+      }
+  
+      .toolbar-background {
+        background-color: --ion-color-primary;
+   
+    }
+  }
+  
+  // Extend super bar placeholder for android
+  
+  .platform-android {
+    page-home, page-language-details {
+      @extend %super-bar;
+    }
+  }
+  
+}
